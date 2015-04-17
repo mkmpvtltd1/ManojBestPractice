@@ -1,0 +1,13 @@
+“Not possible to fast-forward, aborting.”
+
+http://stackoverflow.com/questions/23364339/arc-land-not-possible-to-fast-forward-aborting
+Try this:
+
+    git stash (make sure it's your only stash via git stash list)
+    git checkout master (switch to your master branch)
+    git branch -D arcpatch-D37 (delete the old branch)
+    git reset --hard origin/master (reset your current branch)
+    git pull (update the master branch)
+    arc patch D37 (create a fresh branch)
+    arc land (land it!)
+
